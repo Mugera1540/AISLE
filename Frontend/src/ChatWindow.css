@@ -1,0 +1,128 @@
+.chatWindow {
+  flex-grow: 1; /* Allows the window to take up the remaining space */
+  height: calc(100vh - 40px); /* Fill height minus parent padding */
+  border-radius: 20px;
+  
+  /* Applying the core glass effect */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.938), rgba(47, 47, 48, 0.534));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.507);
+
+  /* Layout for internal elements (navbar, chat, input) */
+  display: flex;
+  flex-direction: column;
+  position: relative; /* For positioning the loading spinner */
+}
+
+/* --- Top Navigation Bar --- */
+.navbar {
+  padding: 20px;
+  border-bottom: 1px solid rgba(19, 1, 1, 0.233);
+}
+
+.navbar span {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.308);
+}
+
+/* --- Chat Input Area at the Bottom --- */
+.chatInput {
+  padding: 20px;
+  margin-top: auto; /* Pushes the input to the bottom */
+}
+
+/* --- Input Box Container --- */
+.inputBox {
+  display: flex;
+  align-items: center;
+  padding: 5px; /* Padding inside the border */
+  border-radius: 15px; /* Rounded corners for the container */
+  
+  /* Glass effect for the input box itself */
+  background: rgb(0, 0, 0);
+  border: 1px solid rgba(26, 25, 25, 0.76);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.644);
+}
+
+/* --- Text Input Field --- */
+.inputBox input {
+  flex-grow: 1; /* Takes up all available space */
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 12px 15px;
+  font-size: 1rem;
+  color: #ffffff; /* Ensure text color is bright */
+}
+
+/* Style for the placeholder text */
+.inputBox input::placeholder {
+  color: rgba(255, 252, 252, 0.452);
+}
+
+/* --- Submit Button --- */
+#submit {
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-right: 5px;
+}
+
+#submit:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+#submit i {
+  font-size: 1.1rem;
+}
+
+/* --- Disclaimer Info Text --- */
+.info {
+  text-align: center;
+  font-size: 0.75rem;
+  margin-top: 15px;
+  opacity: 0.6;
+}
+
+/* --- Loading Spinner Positioning --- */
+.loading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* --- 📱 Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .chatWindow {
+    /* On mobile, the window might be part of a stacked layout.
+       This ensures it fits correctly. */
+    height: 100%; 
+    border-radius: 0; /* Full screen might not need rounded corners */
+  }
+
+  .navbar {
+    padding: 15px; /* Reduce padding to save space */
+  }
+
+  .navbar span {
+    font-size: 1.2rem; /* Make the title slightly smaller */
+  }
+
+  .chatInput {
+    padding: 10px; /* Reduce padding on the main input area */
+  }
+
+  .info {
+    font-size: 0.65rem; /* Make the small text even smaller */
+  }
+}
